@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/jobs', function () {
-    return view('jobs',['jobs' => Job::all()]);
+    return view('jobs',['jobs' => Job::with('employer')->get()]);
 });
 
 Route::get('/content',function(){
