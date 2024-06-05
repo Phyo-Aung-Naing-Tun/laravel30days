@@ -33,13 +33,27 @@
                             <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                                 alt="Your Company">
                         </div>
-                        <div class="hidden md:block">
-                                <x-nav-links :active="request()->is('/')" href="/"
-                                    >Home</x-nav-links>
-                                <x-nav-links :active="request()->is('jobs')" href="/jobs"
-                                    >Jobs</x-nav-links>
-                                <x-nav-links :active="request()->is('content')" href="/content"
-                                    >Content</x-nav-links>
+                        <div class="hidden md:flex justify-between w-full">
+                                <div>
+                                    <x-nav-links :active="request()->is('/')" href="/"
+                                        >Home</x-nav-links>
+                                    <x-nav-links :active="request()->is('jobs')" href="/jobs"
+                                        >Jobs</x-nav-links>
+                                    <x-nav-links :active="request()->is('content')" href="/content"
+                                        >Content</x-nav-links>
+                                </div>
+                                <div>
+                                    @auth
+                                    <x-nav-links  href="/logout"
+                                    >logout</x-nav-links>
+                                    @endauth
+                                    @guest
+                                    <x-nav-links  href="/login"
+                                    >login</x-nav-links>
+                                <x-nav-links href="/register"
+                                    >Register</x-nav-links>
+                                    @endguest
+                                </div>
                             </div>
                         </div>
                     </div>
